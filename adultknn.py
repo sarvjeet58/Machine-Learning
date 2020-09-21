@@ -91,6 +91,10 @@ one = OneHotEncoder(categorical_features = [1, 3, 5, 6, 7, 8, 9, 13])
 X = one.fit_transform(X)
 X = X.toarray()
 
+corrmat = dataset.corr()
+f, ax = plt.subplots(figsize=(12, 9))
+sns.heatmap(corrmat, vmax=.8, square=True);
+
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X,y)
 
